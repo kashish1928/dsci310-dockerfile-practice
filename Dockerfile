@@ -1,4 +1,4 @@
-FROM rocker/rstudio
+FROM rocker/rstudio:4.1.3
 
-RUN install.packages(tidyverse)
-RUN tidyverse::install_version(1.3.2)
+RUN Rscript -e "install.packages('remotes', repos='http://cran.us.r-project.org')"
+RUN Rscript -e "remotes::install_version('cowsay','0.8.0')"
